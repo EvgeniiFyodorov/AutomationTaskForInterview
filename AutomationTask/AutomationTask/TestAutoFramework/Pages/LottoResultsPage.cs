@@ -3,8 +3,6 @@ using Aquality.Selenium.Elements.Interfaces;
 using Aquality.Selenium.Forms;
 using AutomationTask.TestAutoFramework.Forms;
 using OpenQA.Selenium;
-using Selenium.DefaultWaitHelpers;
-using System.Security.Policy;
 
 namespace AutomationTask.TestAutoFramework.Pages
 {

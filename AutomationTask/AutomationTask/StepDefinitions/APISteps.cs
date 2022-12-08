@@ -13,7 +13,7 @@ namespace AutomationTask.StepDefinitions
         [When("Request '(.*)' to '(.*)' URL is made")]
         public async Task MakingRequestAsync(string specifiedRequest, string URL)
         {
-            Responses.Add(await ApiUtils.PostAsync(URL, specifiedRequest));
+            Responses.Add(await ApiUtils.GetAsync(URL, specifiedRequest));
         }
 
         [When("Request '(.*)' to '(.*)' URL is made for each of following parameters:")]
@@ -21,7 +21,7 @@ namespace AutomationTask.StepDefinitions
         {
             for (int i = 0; i < table.RowCount; i++)
             {
-                Responses.Add(await ApiUtils.PostAsync(URL, $"{specifiedRequest}{table.Rows[i]["parameter"]}"));
+                Responses.Add(await ApiUtils.GetAsync(URL, $"{specifiedRequest}{table.Rows[i]["parameter"]}"));
             }           
         }
 

@@ -1,9 +1,7 @@
 ﻿using Aquality.Selenium.Browsers;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Internal;
 using OpenQA.Selenium.Support.UI;
 using Selenium.DefaultWaitHelpers;
-using static ICSharpCode.SharpZipLib.Zip.ExtendedUnixData;
 
 namespace AutomationTask.TestAutoFramework.Utility
 {

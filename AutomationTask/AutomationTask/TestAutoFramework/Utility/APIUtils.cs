@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using RestSharp;
+﻿using RestSharp;
 
 namespace Exam
 {
     public static class ApiUtils
     {
-        public static async Task<string> PostAsync(string API_URL, string specifiedRequest)
+        public static async Task<string> GetAsync(string API_URL, string specifiedRequest)
         {   
             RestClient Client = new RestClient(API_URL);
             var request = new RestRequest(specifiedRequest);

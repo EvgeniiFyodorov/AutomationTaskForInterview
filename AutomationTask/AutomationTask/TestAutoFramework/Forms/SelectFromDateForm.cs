@@ -31,7 +31,6 @@ namespace AutomationTask.TestAutoFramework.Forms
 
         public void FinishPickingDate()
         {
-            //Utils.ClickUntilInvisibility(Done.Locator, DateButtonLocator);
             Done.Click();
         }
     }
