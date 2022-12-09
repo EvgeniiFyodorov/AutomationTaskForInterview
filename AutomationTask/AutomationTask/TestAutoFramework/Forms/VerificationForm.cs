@@ -13,14 +13,7 @@ namespace AutomationTask.TestAutoFramework.Forms
         private IButton BrowseSite => ElementFactory.GetButton(By.XPath("//button[contains(@data-actionable,'RegistrationPage.RegistrationSuccess.browse.desktop')]"), "Browse site");
         public bool IsVerificationPageUp()
         {
-            if (StartLiveChat.State.IsDisplayed || BrowseSite.State.IsDisplayed)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return StartLiveChat.State.IsDisplayed || BrowseSite.State.IsDisplayed;            
         }
     }
 }

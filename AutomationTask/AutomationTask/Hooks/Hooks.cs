@@ -7,13 +7,13 @@ namespace AutomationTask.Hooks
     public sealed class Hooks
     {
 
-        [BeforeFeature]
+        [BeforeFeature("Front")]
         public static void BeforeFeature()
         {
             AqualityServices.Browser.Maximize();
         }
 
-        [AfterFeature]
+        [AfterFeature("Front")]
         public static void AfterFeature()
         {
             AqualityServices.Browser.Quit();

@@ -1,6 +1,6 @@
-﻿using Aquality.Selenium.Elements.Interfaces;
+﻿using Aquality.Selenium.Browsers;
+using Aquality.Selenium.Elements.Interfaces;
 using Aquality.Selenium.Forms;
-using AutomationTask.TestAutoFramework.Utility;
 using OpenQA.Selenium;
 
 namespace AutomationTask.TestAutoFramework.Forms
@@ -36,7 +36,10 @@ namespace AutomationTask.TestAutoFramework.Forms
 
         public void ClickContinue()
         {
-            Utils.ClickUntilInvisibility(Continue.Locator, FirstName.Locator);
+            Continue.Click();
+            AqualityServices.ConditionalWait.
+                      WaitFor(() => FirstName.State.IsDisplayed == false, TimeSpan.FromSeconds(3));
+            Continue.ClickAndWait();
         }
     }
 }

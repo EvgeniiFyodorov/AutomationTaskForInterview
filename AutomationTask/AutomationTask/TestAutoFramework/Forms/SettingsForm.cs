@@ -1,6 +1,6 @@
-﻿using Aquality.Selenium.Elements.Interfaces;
+﻿using Aquality.Selenium.Browsers;
+using Aquality.Selenium.Elements.Interfaces;
 using Aquality.Selenium.Forms;
-using AutomationTask.TestAutoFramework.Utility;
 using OpenQA.Selenium;
 
 namespace AutomationTask.TestAutoFramework.Forms
@@ -22,8 +22,9 @@ namespace AutomationTask.TestAutoFramework.Forms
 
         public void ToVerificationForm()
         {
-            Utils.ClickUntilInvisibility(Register.Locator, AllNoMarketingCheckBoxes[0].Locator);
+            AqualityServices.ConditionalWait.
+                      WaitFor(() => AllNoMarketingCheckBoxes[0].State.IsDisplayed == false, TimeSpan.FromSeconds(3));
+            Register.ClickAndWait();
         }
-
     }
 }

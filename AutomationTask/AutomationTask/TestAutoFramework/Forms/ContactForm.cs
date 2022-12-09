@@ -1,6 +1,6 @@
-﻿using Aquality.Selenium.Elements.Interfaces;
+﻿using Aquality.Selenium.Browsers;
+using Aquality.Selenium.Elements.Interfaces;
 using Aquality.Selenium.Forms;
-using AutomationTask.TestAutoFramework.Utility;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
@@ -34,7 +34,9 @@ namespace AutomationTask.TestAutoFramework.Forms
 
         public void ClickContinue()
         {
-            Utils.ClickUntilInvisibility(Continue.Locator, TelephoneNumber.Locator);
+            AqualityServices.ConditionalWait.
+                      WaitFor(() => TelephoneNumber.State.IsDisplayed == false, TimeSpan.FromSeconds(3));
+            Continue.ClickAndWait();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using RestSharp;
 
-namespace Exam
+namespace AutomationTask.TestAutoFramework.Utility
 {
     public static class ApiUtils
     {

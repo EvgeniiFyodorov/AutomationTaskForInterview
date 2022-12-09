@@ -1,7 +1,8 @@
-﻿Feature: Registration
+﻿@Front
+Feature: Registration
 
 Scenario: CompleteRegistration
-	Given Web page 'https://www.oddsking.com' is opened
+	Given Base web page is opened
 	When Button Join is pressed
 	  And Following Account info is entered:
 	  | Email              | Username           | Password     |

@@ -1,7 +1,6 @@
 ﻿using Aquality.Selenium.Browsers;
 using Aquality.Selenium.Elements.Interfaces;
 using Aquality.Selenium.Forms;
-using AutomationTask.TestAutoFramework.Utility;
 using OpenQA.Selenium;
 
 namespace AutomationTask.TestAutoFramework.Forms

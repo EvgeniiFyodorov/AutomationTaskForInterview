@@ -1,5 +1,6 @@
-﻿using AutomationTask.TestAutoFramework.Pages;
-using AutomationTask.TestAutoFramework.Utility;
+﻿using Aquality.Selenium.Browsers;
+using AutomationTask.DataModel;
+using AutomationTask.TestAutoFramework.Pages;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 
@@ -8,9 +9,16 @@ namespace AutomationTask.StepDefinitions
     [Binding]
     public sealed class LottoSteps
     {
+        ConfigData configData = new ConfigData();
         LottoPage LottoPage = new LottoPage();
         LottoResultsPage LottoResultsPage = new LottoResultsPage();
         public const int DaysBeforeSeventhDay = 6;
+
+        [Given("Lotto web page is opened")]
+        public void OpenWebPage()
+        {
+            AqualityServices.Browser.GoTo(configData.LottoUrl);
+        }
 
         [When("Button Results is pressed")]
         public void StartRegistrationProcess()
@@ -22,11 +30,14 @@ namespace AutomationTask.StepDefinitions
         public void SetDatePeriod()
         {
             LottoResultsPage.ClickSetDateFromButton();
-            Utils.WaitUntilVisible(LottoPage.Locator);
+            AqualityServices.ConditionalWait.
+                   WaitFor(() => LottoPage.State.IsDisplayed == true, TimeSpan.FromSeconds(1));
             LottoResultsPage.SelectFromDateForm.PickingDateSevenDaysAgo();
-            Utils.WaitUntilVisible(LottoPage.Locator);
+            AqualityServices.ConditionalWait.
+                   WaitFor(() => LottoPage.State.IsDisplayed == true, TimeSpan.FromSeconds(1));
             LottoResultsPage.SelectFromDateForm.FinishPickingDate();
-            Utils.WaitUntilVisible(LottoPage.Locator);
+            AqualityServices.ConditionalWait.
+                   WaitFor(() => LottoPage.State.IsDisplayed == true, TimeSpan.FromSeconds(1));
         }
 
         [When("View filtered resuls button is pressed")]
@@ -38,7 +49,8 @@ namespace AutomationTask.StepDefinitions
         [Then("There are no results shown that fall outside of a set date period")]
         public void CheckThatResultsAreInCorrectDate()
         {
-            Utils.WaitUntilVisible(LottoPage.Locator);
+            AqualityServices.ConditionalWait.
+                   WaitFor(() => LottoPage.State.IsDisplayed == true, TimeSpan.FromSeconds(1));
             var dateNow = DateTime.Now;
             var dateForm = DateTime.Now.AddDays(-DaysBeforeSeventhDay);
             var ResultsTextHeadersPreviousMonth = LottoResultsPage.GetAllElementsForSpecificMonth(dateForm.ToString("MMM yyyy"));

@@ -1,4 +1,5 @@
 using Aquality.Selenium.Browsers;
+using AutomationTask.DataModel;
 using AutomationTask.TestAutoFramework.Pages;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
@@ -8,13 +9,14 @@ namespace AutomationTask.StepDefinitions
     [Binding]
     public sealed class RegistrationSteps
     {
+        ConfigData configData = new ConfigData();
         RedistrationPage RedistrationPage = new RedistrationPage();
         StartPage StartPage = new StartPage();
 
-        [Given("Web page '(.*)' is opened")]
-        public void OpenWebPage(string webPage)
+        [Given("Base web page is opened")]
+        public void OpenWebPage()
         {
-            AqualityServices.Browser.GoTo(webPage);
+            AqualityServices.Browser.GoTo(configData.BaseUrl);
         }
 
         [When("Button Join is pressed")]
