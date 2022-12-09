@@ -32,7 +32,7 @@ namespace AutomationTask.StepDefinitions
             RedistrationPage.AccountForm.EnterUserName(table.Rows[0]["Username"]);
             RedistrationPage.AccountForm.EnterPassword(table.Rows[0]["Password"]);
             RedistrationPage.AccountForm.AcceptTermsAndConditions();
-            RedistrationPage.AccountForm.ClickContinue();
+            RedistrationPage.AccountForm.ClickContinue(configData.LongTime);
         }
 
         [When("Following Personal info is entered:")]
@@ -41,7 +41,7 @@ namespace AutomationTask.StepDefinitions
             RedistrationPage.PersonalForm.EnterFirstName(table.Rows[0]["FirstName"]);
             RedistrationPage.PersonalForm.EnterLastName(table.Rows[0]["LastName"]);
             RedistrationPage.PersonalForm.EnterDateOfBirth(table.Rows[0]["DateOfBirth"]);
-            RedistrationPage.PersonalForm.ClickContinue();
+            RedistrationPage.PersonalForm.ClickContinue(configData.LongTime);
         }
 
         [When("Following Contact info is entered:")]
@@ -50,14 +50,14 @@ namespace AutomationTask.StepDefinitions
             RedistrationPage.ContactForm.EnterTelephoneNumber(table.Rows[0]["TelephoneNo"]);
             RedistrationPage.ContactForm.ChooseSecurityQuestion();
             RedistrationPage.ContactForm.EnterSecurityAnswer(table.Rows[0]["SecurityQuestionAnswer"]);
-            RedistrationPage.ContactForm.ClickContinue();
+            RedistrationPage.ContactForm.ClickContinue(configData.LongTime);
         }
 
         [When("Post code '(.*)' is entered")]
         public void EnterPostCode(string postCode)
         {
-            RedistrationPage.AddressForm.EnterAdressOrPostcode(postCode);
-            RedistrationPage.AddressForm.ClickContinue();
+            RedistrationPage.AddressForm.EnterAdressOrPostcode(postCode, configData.ShortTime);
+            RedistrationPage.AddressForm.ClickContinue(configData.LongTime);
         }
 
         [When("All No Marketing checkboxes are checked")]
@@ -69,7 +69,7 @@ namespace AutomationTask.StepDefinitions
         [When("Button Register is pressed")]
         public void ToVerificationForm()
         {
-            RedistrationPage.SettingsForm.ToVerificationForm();
+            RedistrationPage.SettingsForm.ToVerificationForm(configData.LongTime);
         }
 
         [Then("Personal info verification page is shown")]

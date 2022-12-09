@@ -34,11 +34,11 @@ namespace AutomationTask.TestAutoFramework.Forms
             BirthYear.Type(splitDateOfBirth[2]);
         }
 
-        public void ClickContinue()
+        public void ClickContinue(int waitTime)
         {
             Continue.Click();
             AqualityServices.ConditionalWait.
-                      WaitFor(() => FirstName.State.IsDisplayed == false, TimeSpan.FromSeconds(3));
+                      WaitFor(() => FirstName.State.IsDisplayed == false, TimeSpan.FromSeconds(waitTime));
             Continue.ClickAndWait();
         }
     }

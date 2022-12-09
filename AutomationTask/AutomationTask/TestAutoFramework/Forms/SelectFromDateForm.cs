@@ -12,7 +12,7 @@ namespace AutomationTask.TestAutoFramework.Forms
         }
         public const int SixDays = 6;
         private IButton Done => ElementFactory.GetButton(By.XPath("//button[contains(@data-actionable,'Form.Datepicker.Continue')]"), "Done picking date");
-        private By DateButtonLocator => By.XPath("//button[contains(@class,'react-calendar__tile react-calendar__month-view__days')]");
+        private By DateButtonLocator => By.XPath("//button[contains(@class,'react-calendar__tile') and contains(@class,'react-calendar__month-view__days')]");
 
         public void PickingDateSevenDaysAgo()
         {

@@ -1,5 +1,7 @@
 {
   "ApiUrl": "http://affiliate-feed.petfre.sgp.bet/1",
   "BaseUrl": "https://www.oddsking.com",
-  "LottoUrl": "https://www.oddsking.com/lotto/irish"
+  "LottoUrl": "https://www.oddsking.com/lotto/irish",
+  "LongTime": "3",
+  "ShortTime": "1"
 }

@@ -11,5 +11,7 @@ namespace AutomationTask.DataModel
         public string ApiUrl => ConfFile.GetValue<string>("ApiUrl");
         public string BaseUrl => ConfFile.GetValue<string>("BaseUrl");
         public string LottoUrl => ConfFile.GetValue<string>("LottoUrl");
+        public int LongTime => ConfFile.GetValue<int>("LongTime");
+        public int ShortTime => ConfFile.GetValue<int>("ShortTime");
     }
 }

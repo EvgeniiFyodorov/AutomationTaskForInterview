@@ -20,10 +20,10 @@ namespace AutomationTask.TestAutoFramework.Forms
             }
         }
 
-        public void ToVerificationForm()
+        public void ToVerificationForm(int waitTime)
         {
             AqualityServices.ConditionalWait.
-                      WaitFor(() => AllNoMarketingCheckBoxes[0].State.IsDisplayed == false, TimeSpan.FromSeconds(3));
+                      WaitFor(() => AllNoMarketingCheckBoxes[0].State.IsDisplayed == false, TimeSpan.FromSeconds(waitTime));
             Register.ClickAndWait();
         }
     }

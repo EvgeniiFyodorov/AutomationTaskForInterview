@@ -32,10 +32,10 @@ namespace AutomationTask.TestAutoFramework.Forms
             SecrityQuestionsSelect.SelectByIndex(securityQuestionIndex);
         }
 
-        public void ClickContinue()
+        public void ClickContinue(int waitTime)
         {
             AqualityServices.ConditionalWait.
-                      WaitFor(() => TelephoneNumber.State.IsDisplayed == false, TimeSpan.FromSeconds(3));
+                      WaitFor(() => TelephoneNumber.State.IsDisplayed == false, TimeSpan.FromSeconds(waitTime));
             Continue.ClickAndWait();
         }
     }

@@ -36,10 +36,10 @@ namespace AutomationTask.TestAutoFramework.Forms
             TermsAndConditions.Check();
         }
 
-        public void ClickContinue()
+        public void ClickContinue(int waitTime)
         {
             AqualityServices.ConditionalWait.
-                      WaitFor(() => Email.State.IsDisplayed == false, TimeSpan.FromSeconds(3));
+                      WaitFor(() => Email.State.IsDisplayed == false, TimeSpan.FromSeconds(waitTime));
             Continue.ClickAndWait();
         }
     }

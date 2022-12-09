@@ -1,6 +1,6 @@
-﻿@Front
-Feature: LottoResults
+﻿Feature: LottoResults
 
+@Front
 Scenario: LottoResultsForSevenDays
 	Given Lotto web page is opened
 	When Button Results is pressed

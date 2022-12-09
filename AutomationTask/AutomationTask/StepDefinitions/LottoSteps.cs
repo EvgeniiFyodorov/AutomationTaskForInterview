@@ -31,13 +31,13 @@ namespace AutomationTask.StepDefinitions
         {
             LottoResultsPage.ClickSetDateFromButton();
             AqualityServices.ConditionalWait.
-                   WaitFor(() => LottoPage.State.IsDisplayed == true, TimeSpan.FromSeconds(1));
+                   WaitFor(() => LottoPage.State.IsDisplayed == true, TimeSpan.FromSeconds(configData.ShortTime));
             LottoResultsPage.SelectFromDateForm.PickingDateSevenDaysAgo();
             AqualityServices.ConditionalWait.
-                   WaitFor(() => LottoPage.State.IsDisplayed == true, TimeSpan.FromSeconds(1));
+                   WaitFor(() => LottoPage.State.IsDisplayed == true, TimeSpan.FromSeconds(configData.ShortTime));
             LottoResultsPage.SelectFromDateForm.FinishPickingDate();
             AqualityServices.ConditionalWait.
-                   WaitFor(() => LottoPage.State.IsDisplayed == true, TimeSpan.FromSeconds(1));
+                   WaitFor(() => LottoPage.State.IsDisplayed == true, TimeSpan.FromSeconds(configData.ShortTime));
         }
 
         [When("View filtered resuls button is pressed")]
@@ -50,7 +50,7 @@ namespace AutomationTask.StepDefinitions
         public void CheckThatResultsAreInCorrectDate()
         {
             AqualityServices.ConditionalWait.
-                   WaitFor(() => LottoPage.State.IsDisplayed == true, TimeSpan.FromSeconds(1));
+                   WaitFor(() => LottoPage.State.IsDisplayed == true, TimeSpan.FromSeconds(configData.ShortTime));
             var dateNow = DateTime.Now;
             var dateForm = DateTime.Now.AddDays(-DaysBeforeSeventhDay);
             var ResultsTextHeadersPreviousMonth = LottoResultsPage.GetAllElementsForSpecificMonth(dateForm.ToString("MMM yyyy"));

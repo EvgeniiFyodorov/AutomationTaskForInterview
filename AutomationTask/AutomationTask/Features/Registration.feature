@@ -1,6 +1,6 @@
-﻿@Front
-Feature: Registration
+﻿Feature: Registration
 
+@Front
 Scenario: CompleteRegistration
 	Given Base web page is opened
 	When Button Join is pressed
